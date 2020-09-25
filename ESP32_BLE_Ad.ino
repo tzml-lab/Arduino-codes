@@ -26,7 +26,8 @@ void setup() {
   Serial.begin(115200);
   // Create the BLE Device
   BLEDevice::init("CSIE_DevBLE_Beacon02");
-
+  BLEDevice::setPower(ESP_PWR_LVL_P7);
+  esp_ble_tx_power_set(ESP_BLE_PWR_TYPE_ADV, ESP_PWR_LVL_P7);
   // Create the BLE Server
   // BLEServer *pServer = BLEDevice::createServer(); // <-- no longer required to instantiate BLEServer, less flash and ram usage
 
